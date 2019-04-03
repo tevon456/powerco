@@ -35,13 +35,13 @@
             this.NameLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.LoginBackgroundPanel = new System.Windows.Forms.Panel();
-            this.IconUser = new System.Windows.Forms.PictureBox();
             this.IconLock = new System.Windows.Forms.PictureBox();
-            this.Header = new System.Windows.Forms.Label();
+            this.IconUser = new System.Windows.Forms.PictureBox();
             this.IconZap = new System.Windows.Forms.PictureBox();
+            this.Header = new System.Windows.Forms.Label();
             this.LoginBackgroundPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IconUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconZap)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,15 +118,6 @@
             this.LoginBackgroundPanel.TabIndex = 6;
             this.LoginBackgroundPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // IconUser
-            // 
-            this.IconUser.Image = global::PowerCo.Properties.Resources.user2;
-            this.IconUser.Location = new System.Drawing.Point(27, 97);
-            this.IconUser.Name = "IconUser";
-            this.IconUser.Size = new System.Drawing.Size(21, 19);
-            this.IconUser.TabIndex = 7;
-            this.IconUser.TabStop = false;
-            // 
             // IconLock
             // 
             this.IconLock.Image = global::PowerCo.Properties.Resources._lock;
@@ -135,6 +126,24 @@
             this.IconLock.Size = new System.Drawing.Size(21, 19);
             this.IconLock.TabIndex = 8;
             this.IconLock.TabStop = false;
+            // 
+            // IconUser
+            // 
+            this.IconUser.Image = global::PowerCo.Properties.Resources.user;
+            this.IconUser.Location = new System.Drawing.Point(27, 97);
+            this.IconUser.Name = "IconUser";
+            this.IconUser.Size = new System.Drawing.Size(21, 19);
+            this.IconUser.TabIndex = 7;
+            this.IconUser.TabStop = false;
+            // 
+            // IconZap
+            // 
+            this.IconZap.Image = global::PowerCo.Properties.Resources.zap;
+            this.IconZap.Location = new System.Drawing.Point(57, 25);
+            this.IconZap.Name = "IconZap";
+            this.IconZap.Size = new System.Drawing.Size(20, 25);
+            this.IconZap.TabIndex = 6;
+            this.IconZap.TabStop = false;
             // 
             // Header
             // 
@@ -148,15 +157,6 @@
             this.Header.TabIndex = 5;
             this.Header.Text = "PowerCo Login";
             this.Header.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // IconZap
-            // 
-            this.IconZap.Image = global::PowerCo.Properties.Resources.zap;
-            this.IconZap.Location = new System.Drawing.Point(57, 25);
-            this.IconZap.Name = "IconZap";
-            this.IconZap.Size = new System.Drawing.Size(20, 25);
-            this.IconZap.TabIndex = 6;
-            this.IconZap.TabStop = false;
             // 
             // PowerCo
             // 
@@ -177,8 +177,8 @@
             this.Load += new System.EventHandler(this.PowerCo_Load);
             this.LoginBackgroundPanel.ResumeLayout(false);
             this.LoginBackgroundPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IconUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconZap)).EndInit();
             this.ResumeLayout(false);
 

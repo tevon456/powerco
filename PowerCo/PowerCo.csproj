@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainPowerCo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPowerCo.Designer.cs">
+      <DependentUpon>MainPowerCo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PowerCo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,19 +60,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainPowerCo.resx">
+      <DependentUpon>MainPowerCo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PowerCo.resx">
       <DependentUpon>PowerCo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,25 +84,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\alfred-schrock-1452698-unsplash.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tobias-van-schneider-97611-unsplash.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\user.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\lock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\user1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\zap.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\user2.png" />
+    <None Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
