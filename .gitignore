@@ -1,0 +1,5 @@
+#Dont track these files or directories
+
+/PowerCo/bin
+/PowerCo/obj/Debug
+/.vs
