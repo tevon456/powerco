@@ -34,7 +34,7 @@ namespace PowerCo
 
         private void BillGeneration_Click(object sender, EventArgs e)
         {
-
+    
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -45,6 +45,30 @@ namespace PowerCo
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Error");
+                throw;
+            }
         }
     }
 }

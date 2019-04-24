@@ -91,12 +91,13 @@ namespace PowerCo
             int isAdmin = 0;
             string filename = "powerco_db.mdf";
             string directory = @"C:\Users\tevon\Desktop\PowerCo\PowerCo\" + filename;
+            string workdirectory = @"C:\Users\JMDA\Desktop\powerco\PowerCo\" + filename;
             string username = customerNameField.Text.Trim();
             string password = customerPasswordField.Text.Trim();
-            string query_user = sqlSelectFromWhere("*", "users", "username = '" + username + "' and password = '" + password + "'"+" and isAdmin = "+isAdmin+" ");
+            string query_user = sqlSelectFromWhere("*", "users", "username = '" + username + "' and password = '" + password + "'"+" and is_admin = "+isAdmin+" ");
 
             //Initialize Connection
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + directory + ";Integrated Security=" + security + ";Connect Timeout=" + timeout);
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + workdirectory + ";Integrated Security=" + security + ";Connect Timeout=" + timeout);
             try
             {
                 //Query user info for authentication
@@ -139,11 +140,13 @@ namespace PowerCo
             //Config values
             bool security = true;
             int timeout = 30;
+            int isAdmin = 1;
             string filename = "powerco_db.mdf";
             string directory = @"C:\Users\tevon\Desktop\PowerCo\PowerCo\" + filename;
+            string workdirectory = @"C:\Users\JMDA\Desktop\powerco\PowerCo\" + filename;
             string username = NameField.Text.Trim();
             string password = PasswordField.Text.Trim();
-            string query_user = sqlSelectFromWhere("*", "users", "username = '" + username + "' and password = '" + password + "'");
+            string query_user = sqlSelectFromWhere("*", "users", "username = '" + username + "' and password = '" + password + "'" + " and is_admin = " + isAdmin + " ");
 
             if (username == "" || password == "")
             {
@@ -151,7 +154,7 @@ namespace PowerCo
             }
 
             //Initialize Connection
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + directory + ";Integrated Security=" + security + ";Connect Timeout=" + timeout);
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + workdirectory + ";Integrated Security=" + security + ";Connect Timeout=" + timeout);
             try
             {
                 //Query user info for authentication
