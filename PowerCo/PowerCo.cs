@@ -97,7 +97,7 @@ namespace PowerCo
             string query_user = sqlSelectFromWhere("*", "users", "username = '" + username + "' and password = '" + password + "'"+" and is_admin = "+isAdmin+" ");
 
             //Initialize Connection
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + workdirectory + ";Integrated Security=" + security + ";Connect Timeout=" + timeout);
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + directory + ";Integrated Security=" + security + ";Connect Timeout=" + timeout);
             try
             {
                 //Query user info for authentication
