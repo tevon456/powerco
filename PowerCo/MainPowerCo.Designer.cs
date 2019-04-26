@@ -31,13 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPowerCo));
             this.BillGeneration = new System.Windows.Forms.TabPage();
             this.CustomerManagement = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGrid = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.broughtForwardField = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.paymentsDateField = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.paymentsField = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -63,9 +61,11 @@
             this.premisesNumberField = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DashboardTab = new System.Windows.Forms.TabControl();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.RichTextBox();
+            this.paymentsDateField = new System.Windows.Forms.DateTimePicker();
             this.CustomerManagement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.DashboardTab.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +76,7 @@
             this.BillGeneration.Location = new System.Drawing.Point(4, 22);
             this.BillGeneration.Name = "BillGeneration";
             this.BillGeneration.Padding = new System.Windows.Forms.Padding(3);
-            this.BillGeneration.Size = new System.Drawing.Size(805, 586);
+            this.BillGeneration.Size = new System.Drawing.Size(805, 697);
             this.BillGeneration.TabIndex = 1;
             this.BillGeneration.Text = "Bill Generation";
             this.BillGeneration.Click += new System.EventHandler(this.BillGeneration_Click);
@@ -84,48 +84,29 @@
             // CustomerManagement
             // 
             this.CustomerManagement.BackColor = System.Drawing.Color.RoyalBlue;
-            this.CustomerManagement.Controls.Add(this.dataGridView1);
-            this.CustomerManagement.Controls.Add(this.panel2);
+            this.CustomerManagement.Controls.Add(this.searchBox);
+            this.CustomerManagement.Controls.Add(this.searchButton);
             this.CustomerManagement.Controls.Add(this.panel1);
+            this.CustomerManagement.Controls.Add(this.dataGrid);
             this.CustomerManagement.Location = new System.Drawing.Point(4, 22);
             this.CustomerManagement.Name = "CustomerManagement";
             this.CustomerManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.CustomerManagement.Size = new System.Drawing.Size(805, 586);
+            this.CustomerManagement.Size = new System.Drawing.Size(805, 757);
             this.CustomerManagement.TabIndex = 0;
             this.CustomerManagement.Text = "Customer Management";
             this.CustomerManagement.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // dataGridView1
+            // dataGrid
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Indigo;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(382, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(427, 586);
-            this.dataGridView1.TabIndex = 12;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.saveButton);
-            this.panel2.Controls.Add(this.broughtForwardField);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.paymentsDateField);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.paymentsField);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.previousBalanceField);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Location = new System.Drawing.Point(184, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(201, 583);
-            this.panel2.TabIndex = 1;
+            this.dataGrid.BackgroundColor = System.Drawing.Color.White;
+            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid.Location = new System.Drawing.Point(194, 38);
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.Size = new System.Drawing.Size(617, 723);
+            this.dataGrid.TabIndex = 12;
             // 
             // label10
             // 
@@ -133,7 +114,7 @@
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(19, 19);
+            this.label10.Location = new System.Drawing.Point(19, 258);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 25);
             this.label10.TabIndex = 10;
@@ -143,11 +124,12 @@
             // saveButton
             // 
             this.saveButton.BackColor = System.Drawing.Color.LimeGreen;
+            this.saveButton.CausesValidation = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.saveButton.Location = new System.Drawing.Point(19, 351);
+            this.saveButton.Location = new System.Drawing.Point(18, 723);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(156, 28);
+            this.saveButton.Size = new System.Drawing.Size(60, 28);
             this.saveButton.TabIndex = 8;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = false;
@@ -155,33 +137,26 @@
             // 
             // broughtForwardField
             // 
-            this.broughtForwardField.Location = new System.Drawing.Point(19, 215);
+            this.broughtForwardField.Location = new System.Drawing.Point(19, 454);
             this.broughtForwardField.Name = "broughtForwardField";
-            this.broughtForwardField.Size = new System.Drawing.Size(156, 20);
+            this.broughtForwardField.Size = new System.Drawing.Size(170, 20);
             this.broughtForwardField.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(16, 199);
+            this.label5.Location = new System.Drawing.Point(16, 438);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Brought Forward";
             // 
-            // paymentsDateField
-            // 
-            this.paymentsDateField.Location = new System.Drawing.Point(19, 165);
-            this.paymentsDateField.Name = "paymentsDateField";
-            this.paymentsDateField.Size = new System.Drawing.Size(156, 20);
-            this.paymentsDateField.TabIndex = 5;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(16, 149);
+            this.label6.Location = new System.Drawing.Point(16, 388);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 4;
@@ -190,16 +165,16 @@
             // 
             // paymentsField
             // 
-            this.paymentsField.Location = new System.Drawing.Point(19, 116);
+            this.paymentsField.Location = new System.Drawing.Point(19, 355);
             this.paymentsField.Name = "paymentsField";
-            this.paymentsField.Size = new System.Drawing.Size(156, 20);
+            this.paymentsField.Size = new System.Drawing.Size(170, 20);
             this.paymentsField.TabIndex = 3;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(16, 100);
+            this.label7.Location = new System.Drawing.Point(16, 339);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 2;
@@ -207,16 +182,16 @@
             // 
             // previousBalanceField
             // 
-            this.previousBalanceField.Location = new System.Drawing.Point(19, 69);
+            this.previousBalanceField.Location = new System.Drawing.Point(19, 308);
             this.previousBalanceField.Name = "previousBalanceField";
-            this.previousBalanceField.Size = new System.Drawing.Size(156, 20);
+            this.previousBalanceField.Size = new System.Drawing.Size(170, 20);
             this.previousBalanceField.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(16, 53);
+            this.label8.Location = new System.Drawing.Point(16, 292);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 13);
             this.label8.TabIndex = 0;
@@ -226,15 +201,25 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel1.Controls.Add(this.saveButton);
+            this.panel1.Controls.Add(this.paymentsDateField);
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.fuelAdjustmentRateField);
             this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.broughtForwardField);
             this.panel1.Controls.Add(this.currentUsageField);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.previousReadingField);
+            this.panel1.Controls.Add(this.paymentsField);
             this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.currentReadingField);
+            this.panel1.Controls.Add(this.previousBalanceField);
             this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.accountHoldersAddressField);
@@ -247,14 +232,14 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-4, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(192, 583);
+            this.panel1.Size = new System.Drawing.Size(192, 754);
             this.panel1.TabIndex = 0;
             // 
             // fuelAdjustmentRateField
             // 
             this.fuelAdjustmentRateField.BackColor = System.Drawing.Color.Silver;
             this.fuelAdjustmentRateField.Cursor = System.Windows.Forms.Cursors.No;
-            this.fuelAdjustmentRateField.Location = new System.Drawing.Point(19, 495);
+            this.fuelAdjustmentRateField.Location = new System.Drawing.Point(19, 688);
             this.fuelAdjustmentRateField.Name = "fuelAdjustmentRateField";
             this.fuelAdjustmentRateField.ReadOnly = true;
             this.fuelAdjustmentRateField.Size = new System.Drawing.Size(156, 20);
@@ -265,7 +250,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(16, 479);
+            this.label16.Location = new System.Drawing.Point(16, 672);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(108, 13);
             this.label16.TabIndex = 18;
@@ -275,7 +260,7 @@
             // 
             this.currentUsageField.BackColor = System.Drawing.Color.Silver;
             this.currentUsageField.Cursor = System.Windows.Forms.Cursors.No;
-            this.currentUsageField.Location = new System.Drawing.Point(18, 447);
+            this.currentUsageField.Location = new System.Drawing.Point(18, 640);
             this.currentUsageField.Name = "currentUsageField";
             this.currentUsageField.ReadOnly = true;
             this.currentUsageField.Size = new System.Drawing.Size(156, 20);
@@ -286,7 +271,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(15, 431);
+            this.label13.Location = new System.Drawing.Point(15, 624);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(75, 13);
             this.label13.TabIndex = 16;
@@ -296,7 +281,7 @@
             // 
             this.previousReadingField.BackColor = System.Drawing.Color.Silver;
             this.previousReadingField.Cursor = System.Windows.Forms.Cursors.No;
-            this.previousReadingField.Location = new System.Drawing.Point(18, 398);
+            this.previousReadingField.Location = new System.Drawing.Point(18, 591);
             this.previousReadingField.Name = "previousReadingField";
             this.previousReadingField.ReadOnly = true;
             this.previousReadingField.Size = new System.Drawing.Size(156, 20);
@@ -307,7 +292,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(15, 382);
+            this.label14.Location = new System.Drawing.Point(15, 575);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(91, 13);
             this.label14.TabIndex = 14;
@@ -317,7 +302,7 @@
             // 
             this.currentReadingField.BackColor = System.Drawing.Color.Silver;
             this.currentReadingField.Cursor = System.Windows.Forms.Cursors.No;
-            this.currentReadingField.Location = new System.Drawing.Point(18, 351);
+            this.currentReadingField.Location = new System.Drawing.Point(18, 544);
             this.currentReadingField.Name = "currentReadingField";
             this.currentReadingField.ReadOnly = true;
             this.currentReadingField.Size = new System.Drawing.Size(156, 20);
@@ -328,7 +313,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(15, 335);
+            this.label15.Location = new System.Drawing.Point(15, 528);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(84, 13);
             this.label15.TabIndex = 12;
@@ -340,7 +325,7 @@
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label11.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(19, 306);
+            this.label11.Location = new System.Drawing.Point(19, 499);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(135, 25);
             this.label11.TabIndex = 11;
@@ -363,7 +348,7 @@
             this.accountHoldersAddressField.BackColor = System.Drawing.SystemColors.Control;
             this.accountHoldersAddressField.Location = new System.Drawing.Point(19, 215);
             this.accountHoldersAddressField.Name = "accountHoldersAddressField";
-            this.accountHoldersAddressField.Size = new System.Drawing.Size(156, 20);
+            this.accountHoldersAddressField.Size = new System.Drawing.Size(170, 20);
             this.accountHoldersAddressField.TabIndex = 7;
             // 
             // label4
@@ -380,7 +365,7 @@
             // 
             this.accountHoldersNameField.Location = new System.Drawing.Point(19, 165);
             this.accountHoldersNameField.Name = "accountHoldersNameField";
-            this.accountHoldersNameField.Size = new System.Drawing.Size(156, 20);
+            this.accountHoldersNameField.Size = new System.Drawing.Size(170, 20);
             this.accountHoldersNameField.TabIndex = 5;
             // 
             // label3
@@ -397,7 +382,7 @@
             // 
             this.accountNumberField.Location = new System.Drawing.Point(19, 116);
             this.accountNumberField.Name = "accountNumberField";
-            this.accountNumberField.Size = new System.Drawing.Size(156, 20);
+            this.accountNumberField.Size = new System.Drawing.Size(170, 20);
             this.accountNumberField.TabIndex = 3;
             // 
             // label2
@@ -415,7 +400,7 @@
             // 
             this.premisesNumberField.Location = new System.Drawing.Point(19, 69);
             this.premisesNumberField.Name = "premisesNumberField";
-            this.premisesNumberField.Size = new System.Drawing.Size(156, 20);
+            this.premisesNumberField.Size = new System.Drawing.Size(170, 20);
             this.premisesNumberField.TabIndex = 1;
             // 
             // label1
@@ -439,24 +424,62 @@
             this.DashboardTab.Location = new System.Drawing.Point(-6, 0);
             this.DashboardTab.Name = "DashboardTab";
             this.DashboardTab.SelectedIndex = 0;
-            this.DashboardTab.Size = new System.Drawing.Size(813, 612);
+            this.DashboardTab.Size = new System.Drawing.Size(813, 783);
             this.DashboardTab.TabIndex = 1;
+            // 
+            // searchButton
+            // 
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.ForeColor = System.Drawing.Color.White;
+            this.searchButton.Location = new System.Drawing.Point(643, -1);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(162, 40);
+            this.searchButton.TabIndex = 11;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // searchBox
+            // 
+            this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchBox.BackColor = System.Drawing.Color.Lavender;
+            this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchBox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.searchBox.Location = new System.Drawing.Point(194, 0);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(18, 3, 8, 3);
+            this.searchBox.Multiline = false;
+            this.searchBox.Name = "searchBox";
+            this.searchBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.searchBox.Size = new System.Drawing.Size(453, 39);
+            this.searchBox.TabIndex = 13;
+            this.searchBox.Text = " Search...";
+            // 
+            // paymentsDateField
+            // 
+            this.paymentsDateField.Location = new System.Drawing.Point(18, 404);
+            this.paymentsDateField.Name = "paymentsDateField";
+            this.paymentsDateField.Size = new System.Drawing.Size(171, 20);
+            this.paymentsDateField.TabIndex = 9;
             // 
             // MainPowerCo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.RoyalBlue;
-            this.ClientSize = new System.Drawing.Size(800, 605);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(800, 776);
             this.Controls.Add(this.DashboardTab);
+            this.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainPowerCo";
             this.Text = "MainPowerCo";
             this.Load += new System.EventHandler(this.MainPowerCo_Load);
             this.CustomerManagement.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.DashboardTab.ResumeLayout(false);
@@ -468,13 +491,11 @@
 
         private System.Windows.Forms.TabPage BillGeneration;
         private System.Windows.Forms.TabPage CustomerManagement;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.TextBox broughtForwardField;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox paymentsDateField;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox paymentsField;
         private System.Windows.Forms.Label label7;
@@ -500,5 +521,8 @@
         private System.Windows.Forms.TextBox premisesNumberField;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl DashboardTab;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.RichTextBox searchBox;
+        private System.Windows.Forms.DateTimePicker paymentsDateField;
     }
 }
