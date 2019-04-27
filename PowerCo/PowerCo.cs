@@ -109,8 +109,7 @@ namespace PowerCo
                 if (dataTable.Rows.Count == 1)
                 {
                     MainPowerCo dashboard = new MainPowerCo();
-                    this.Hide(); // Refrence current login form and hide it 
-                    dashboard.Show();
+                    MessageBox.Show("Bill was generated on your desktop");
                 }
                 else
                 {
